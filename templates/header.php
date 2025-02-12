@@ -45,7 +45,7 @@
     <?php if (!empty($flassMessage['msg'])): ?>
 
         <div class="msg-container">
-            <p class="msg <?= $flassMessage['type'] ?>"><?= $flassMessage['msg'] ?></p>
+            <p class="msg <?= $flassMessage['type'] ?>"><?= $flassMessage['msglo'] ?></p>
         </div>
 
     <?php endif; ?>
