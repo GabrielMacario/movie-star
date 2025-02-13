@@ -5,9 +5,9 @@
 ?>
 
     <div id="main-container" class="container-fluid">
-        <div class="col-md12">
+        <div class="col-md">
             <div class="row" id="auth-row">
-                <div class="col-md4" id="login-container">
+                <div class="col-md-4" id="login-container">
                     <h2>Entrar</h2>
                     <form method="POST" action="">
                         <input type="hideen" name="type" value="login">
@@ -22,7 +22,7 @@
                         <input type="submit" class="btn card-btn" value="Entrar">
                     </form>
                 </div>
-                <div class="col-md4" id="register-container">
+                <div class="col-md-4" id="register-container">
                     <h2>Criar conta</h2>
                     <form action="" method="POST">
                         <input type="hidden" name="type" value="register">
