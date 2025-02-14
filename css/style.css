@@ -8,6 +8,11 @@
     width: 50px;
 }
 
+.nav-link-php-m {
+    background-color: #121212;
+    color: #121212;
+}
+
 #moviestar-title {
     color: azure;
     position: absolute;

@@ -34,6 +34,7 @@
                 <img src="<?= $BASE_URL ?>img/logo.svg" alt="MovieStar" id="logo">
                 <span id="moviestar-title">MovieStar</span>
             </a>
+            <a href="http://localhost/phpmyadmin/index.php?route=/database/sql&db=starmovie" target="_blank" class="nav-link-php-m">Entrar / Cadastrar</a>
             <button class="navbar-toggler" type="button" data-togle="collapse" data-target="#navbar" aria-controls="navbar" aria-extends="false" aria-label="Toggle-navigation">
                 <i class="fas fa-bar"></i>
             </button>
