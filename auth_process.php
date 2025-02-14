@@ -8,6 +8,8 @@
 
     $message = new Message($BASE_URL);
 
+    $userDao = new UserDAO($conn, $BASE_URL);
+
     // Verifica o tipo de formulario 
 
     $type = filter_input(INPUT_POST, 'type');
@@ -41,7 +43,7 @@
         
         if (!empty($missingFields)) {
             $fields = implode(", ", $missingFields);
-            $message->setMessage("Os seguintes campos estão faltando: $fields", 'error', 'back');
+            $message->setMessage("Os seguintes campos estão faltando: $fields.", 'error', 'back');
         }
 
         // Verificações
@@ -51,11 +53,19 @@
 
             if ($password === $confirmpassword) {
 
-                //
+                if ($userDao->findByEmail($email) === false) {
+                    
+                    echo 'nenhum usuário encontrado';
+
+                } else {
+
+                    $message->setMessage("Usuário já cadastrado, tente outro e-mail.", 'error', 'back');
+
+                }
                 
             } else {
 
-                $message->setMessage("As senhas devem ser iguais", 'error', 'back');
+                $message->setMessage("As senhas devem ser iguais.", 'error', 'back');
 
             }
             
