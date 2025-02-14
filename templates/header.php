@@ -9,7 +9,7 @@
     $flassMessage = $message->getMessage();
 
     if (!empty($flassMessage['msg'])) {
-        #// limpar a msg
+        $message->clearMessage();
     }
 
 

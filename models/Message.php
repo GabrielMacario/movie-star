@@ -40,7 +40,8 @@
 
         public function clearMessage() {
 
-
+            $_SESSION['msg'] = '';
+            $_SESSION['type'] = '';
 
         }
 
