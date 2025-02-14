@@ -22,18 +22,47 @@
         $password = filter_input(INPUT_POST, 'password');
         $confirmpassword = filter_input(INPUT_POST, 'confirmpassword');
 
-        // verificação de dados minimos
+        // verificar oq falta
+
+        $missingFields = [];
+
+        if (!$name) {
+            $missingFields[] = "Nome";
+        }
+        if (!$lastname) {
+            $missingFields[] = "Sobrenome";
+        }
+        if (!$email) {
+            $missingFields[] = "E-mail";
+        }
+        if (!$password) {
+            $missingFields[] = "Senha";
+        }
+        
+        if (!empty($missingFields)) {
+            $fields = implode(", ", $missingFields);
+            $message->setMessage("Os seguintes campos estão faltando: $fields", 'error', 'back');
+        }
+
+        // Verificações
 
         if($name && $lastname && $email && $password) {
 
-            echo 'oi';
-            
-        } else {
-            
-            $message->setMessage("Por favor, preecha todos os campos.", 'error', 'back');
 
+            if ($password === $confirmpassword) {
+
+                //
+                
+            } else {
+
+                $message->setMessage("As senhas devem ser iguais", 'error', 'back');
+
+            }
+            
         }
 
+        // verificação de dados minimos
+       
     } elseif ($type === 'login') {
 
         # code...
