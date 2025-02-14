@@ -26,11 +26,11 @@
 
         if($name && $lastname && $email && $password) {
 
-            //enviar uma mensagem de erro de dados faltantes
-
+            echo 'oi';
+            
         } else {
             
-            $message->setMessage('Por favor, preecha todos os campos.', 'error', 'back');
+            $message->setMessage("Por favor, preecha todos os campos.", 'error', 'back');
 
         }
 
