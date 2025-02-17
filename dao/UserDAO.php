@@ -64,6 +64,7 @@
             
             if ($token != "") {
                 
+                
                 $stmt = $this->conn->prepare("SELECT * FROM users where token = :token");
 
                 $stmt->bindParam(":token", $token);

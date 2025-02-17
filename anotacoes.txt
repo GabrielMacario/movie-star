@@ -7,10 +7,8 @@ serve somente para acessar o php my admin mais facilmente
 
 //
 
-https://www.udemy.com/course/php-do-zero-a-maestria-com-projetos-incriveis/learn/lecture/23908962#overview
+https://www.udemy.com/course/php-do-zero-a-maestria-com-projetos-incriveis/learn/lecture/23908970#content
 
-11:00
+odne parei, no começo.
 
-onde parei!!
-
-deploy foi de autenticaçaõ
+seria sobre o login
