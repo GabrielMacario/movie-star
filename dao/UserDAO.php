@@ -78,9 +78,11 @@
 
                     return $user;
 
+
                 } else {
 
                     return false;
+
 
                 }
 
@@ -100,19 +102,21 @@
 
                 $user = $this->findByToken($token);
 
+
                 if ($user) {
                     
                     return $user;
 
-                } else {
+
+                } else if ($protected) {
                 
                     $this->message->setMessage('Faça a autenticação para acessar essa página', 'error', 'index.php');
 
                 }
 
-            } else {
-
-                return false;
+            } else if ($protected) {
+                
+                $this->message->setMessage('Faça a autenticação para acessar essa página', 'error', 'index.php');
 
             }
 
