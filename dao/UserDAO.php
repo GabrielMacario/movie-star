@@ -137,6 +137,23 @@
 
         public function authenticateUser($email, $password){
 
+            $user = $this->findByEmail($email);
+
+            if ($user) {
+
+                //checar se a senha bate
+                if (password_verify($password, $user->password)) {
+                    
+
+
+                }   else {
+                    return false;
+                }
+
+            } else {
+                return false;
+            }
+
         }
 
         public function findByEmail($email){

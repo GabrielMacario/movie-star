@@ -90,6 +90,20 @@
        
     } elseif ($type === 'login') {
 
-        # code...
+        $email = filter_input(INPUT_POST, 'email');
+        $password = filter_input(INPUT_POST, 'password');   
+        
+        // tenta autentica o usuário
+
+        if ($userDao->authenticateUser($email, $password)) {
+            
+
+
+            //redireciona o uauário caso não conseguir autenticar            
+        } else {
+
+            $message->setMessage("Usuário e/ou senha incorreto.", 'error', 'back');
+
+        }
 
     }
