@@ -35,6 +35,7 @@
         public function setTokenToSession($token, $redirect = true);
         public function authenticateUser($email, $password);
         public function findById($id);
+        public function destroyToken();
         public function changePassword(User $user);
 
 

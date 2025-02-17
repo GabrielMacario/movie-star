@@ -1,3 +1,13 @@
+<?php
+
+    require_once('dao/UserDAO.php');
+
+    $userDao = new UserDAO($conn, $BASE_URL);
+
+    $userData = $userDao->verifyToken(false);
+
+?>
+
 <footer id="footer">
         <div id="social-container">
             <ul>
@@ -10,7 +20,13 @@
             <ul>
                 <li><a href="#">Adicionar filme</a></li>
                 <li><a href="#">Adicionar critica</a></li>
-                <li><a href="<?= $BASE_URL ?>auth.php">Entrar / Registrar</a></li>
+                <?php if ($userData): ?>
+                    <p><li><a href="<?= $BASE_URL ?>auth.php">ta logado</a></li></p>
+                <?php else: ?>
+                    <li class="nav-item">
+                        <a href="<?= $BASE_URL ?>auth.php" class="nav-link">Entrar / Cadastrar</a>
+                    </li>
+                <?php endif; ?>
             </ul>
         </div>
         <p>&copy; 2025 Macario</p>

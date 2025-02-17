@@ -61,9 +61,60 @@
 
         public function findByToken($token){
 
+            
+            if ($token != "") {
+                
+                $stmt = $this->conn->prepare("SELECT * FROM users where token = :token");
+
+                $stmt->bindParam(":token", $token);
+
+                $stmt->execute();
+
+                if ($stmt->rowCount() > 0) {
+
+                    $data = $stmt->fetch();
+
+                    $user = $this->buildUser($data);
+
+                    return $user;
+
+                } else {
+
+                    return false;
+
+                }
+
+            } else {
+                return false;
+            }
+
         }
 
         public function verifyToken($protected = false){
+
+            if (!empty($_SESSION['token'])) {
+                
+                //Pega o token da session 
+
+                $token = $_SESSION['token'];
+
+                $user = $this->findByToken($token);
+
+                if ($user) {
+                    
+                    return $user;
+
+                } else {
+                
+                    $this->message->setMessage('Faça a autenticação para acessar essa página', 'error', 'index.php');
+
+                }
+
+            } else {
+
+                return false;
+
+            }
 
         }
 
@@ -72,7 +123,7 @@
             $_SESSION['token'] = $token;
 
             if ($redirect) {
-                //redireciona para o perfil do usuário
+                //redireciona pprotecteara o perfil do usuário
 
                 $this->message->setMessage('Seja bem-vindo!', 'success', 'editprofile.php');
             }
@@ -116,6 +167,16 @@
         public function findById($id){
 
         }
+
+        public function destroyToken(){
+
+            $_SESSION['token'] = '';
+
+            $this->message->setMessage('Você fez o logout com sucesso.', 'success', 'index.php');
+
+        }
+
+
 
         public function changePassword(User $user){
 
