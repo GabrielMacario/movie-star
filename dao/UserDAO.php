@@ -144,7 +144,13 @@
                 //checar se a senha bate
                 if (password_verify($password, $user->password)) {
                     
+                    $token = $user->generateToken();
 
+                    $this->setTokenToSession($token);
+
+                    $user->token = $token;
+
+                    $this->update($user);
 
                 }   else {
                     return false;

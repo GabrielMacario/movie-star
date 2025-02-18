@@ -97,13 +97,18 @@
 
         if ($userDao->authenticateUser($email, $password)) {
             
+            
 
-
-            //redireciona o uauário caso não conseguir autenticar            
         } else {
 
             $message->setMessage("Usuário e/ou senha incorreto.", 'error', 'back');
 
         }
-
     }
+
+    else {
+
+        $message->setMessage("Informações inválidas!.", 'error', 'back');
+            
+    }
+
