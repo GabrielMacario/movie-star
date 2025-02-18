@@ -9,11 +9,35 @@
 
   $userData = $userDao->verifyToken(true);
 
+  $fullName = $user->getFullName($userData)
 
 ?>
 
     <div id="main-container" class="container-fluid">
-        <h1>Edit</h1>
+      <div class="col-md-12">
+        <form action="<?= $BASE_URL ?>user_process.php" method="POST">
+          <input type="hidden" name="type" value="update">
+          <div class="row">
+            <div class="col-md-4">
+              <h1><?= $fullName ?></h1>
+              <p class="page-description">Altere seus dados no formulário abaixo:</p>
+              <div class="form-group">
+                <label for="name">Nome:</label>
+                <input type="text" name="name" id="name" class="form-control" placeholder="Digite o seu nome" value="<?= $userData->name ?>">
+              </div>
+              <div class="form-group">
+                <label for="lastname">Sobrenome:</label>
+                <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Digite o seu sobrenome" value="<?= $userData->lastname ?>">
+              </div>
+              <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="text" readonly name="email" id="email" class="form-control disabled" placeholder="Digite o seu email" value="<?= $userData->email ?>">
+              </div>
+              <input type="submit" value="Alterar" class="btn form-btn">
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
 
 <?php
