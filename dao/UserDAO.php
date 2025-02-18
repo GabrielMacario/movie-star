@@ -180,6 +180,8 @@
 
                     $this->update($user, false);
 
+                    return true;
+
                 }   else {
                     return false;
                 }
