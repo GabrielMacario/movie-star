@@ -97,7 +97,7 @@
 
         if ($userDao->authenticateUser($email, $password)) {
             
-            
+            $message->setMessage('Seja bem-vindo!', 'success', 'editprofile.php');
 
         } else {
 
