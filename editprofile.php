@@ -35,6 +35,9 @@
               </div>
               <input type="submit" value="Alterar" class="btn form-btn">
             </div>
+            <div class="col-md-4">
+              <div id="profile-image-container" style="background-image: url('')"></div>
+            </div>
           </div>
         </form>
       </div>
