@@ -9,13 +9,17 @@
 
   $userData = $userDao->verifyToken(true);
 
-  $fullName = $user->getFullName($userData)
+  $fullName = $user->getFullName($userData);
+
+  if ($userData->image == '') {
+    $userData->image = 'user.png';
+  }
 
 ?>
 
     <div id="main-container" class="container-fluid">
       <div class="col-md-12">
-        <form action="<?= $BASE_URL ?>user_process.php" method="POST">
+        <form action="<?= $BASE_URL ?>user_process.php" method="POST" enctype="multipart/form-data">
           <input type="hidden" name="type" value="update">
           <div class="row">
             <div class="col-md-4">
@@ -36,7 +40,15 @@
               <input type="submit" value="Alterar" class="btn form-btn">
             </div>
             <div class="col-md-4">
-              <div id="profile-image-container" style="background-image: url('')"></div>
+              <div id="profile-image-container" style="background-image: url('<?= $BASE_URL ?>img/users/<?= $userData->image ?>')"></div>
+              <div class="form-group">
+                <label for="image">Foto:</label>
+                <input type="file" name="image" id="image" class="form-control-file" placeholder="Digite o seu nome" value="<?= $userData->name ?>">
+              </div>
+              <div class="form-group">
+                <label for="bio">Sobre você:</label>
+                <textarea class='form-control' name="bio" id="bio" rows='5' placeholder="Conte quem é você, o que faz e onde trabalha..."><?= $userData->bio ?></textarea>
+              </div>
             </div>
           </div>
         </form>
