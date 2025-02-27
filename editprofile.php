@@ -37,7 +37,7 @@
                 <label for="email">E-mail:</label>
                 <input type="text" readonly name="email" id="email" class="form-control disabled" placeholder="Digite o seu email" value="<?= $userData->email ?>">
               </div>
-              <input type="submit" value="Alterar" class="btn form-btn">
+              <input type="submit" value="Alterar" class="btn card-btn">
             </div>
             <div class="col-md-4">
               <div id="profile-image-container" style="background-image: url('<?= $BASE_URL ?>img/users/<?= $userData->image ?>')"></div>
@@ -66,6 +66,7 @@
                 <label for="confirmpassword">Confirmação de senha:</label>
                 <input type="text" name="confirmpassword" id="confirmpassword" class="form-control" placeholder="Confirme a sua nova senha">
               </div>
+              <input type="submit" value="Alterar Senha" class="btn card-btn">
             </form>
           </div>
         </div>
