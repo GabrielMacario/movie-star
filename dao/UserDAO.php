@@ -79,7 +79,7 @@
 
             if ($redirect) {
 
-                $this->message->setMessage('Dados atualizados com sucesso', 'error', 'index.php');
+                $this->message->setMessage('Dados atualizados com sucesso', 'success', 'editprofile.php');
 
             }
 
